@@ -1,0 +1,34 @@
+{
+  "name": "design-tokens-starter-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A simple app that applies design tokens from Figma",
+  "dependencies": {
+    "node": "^21.2.0"
+  },
+  "devDependencies": {
+    "style-dictionary": "3.7.1",
+    "token-transformer": "0.0.27",
+    "ts-node": "^10.5.0",
+    "typescript": "4.9.3"
+  },
+  "scripts": {
+    "render-tokens": "ts-node ./tokens/scripts/styleDictionary.ts --inputFile tokens/style-dictionary/transformed.json --outputPath src/tokens",
+    "figma-sync": "git fetch && git merge origin/main && npm transform-to-style-dictionary && npm render-tokens",
+    "transform-to-style-dictionary": "npx token-transformer tokens/raw/tokens.json tokens/style-dictionary/transformed.json"
+  },
+  "eslintConfig": {
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
